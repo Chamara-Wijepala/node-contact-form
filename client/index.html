@@ -34,6 +34,7 @@
 
 <script>
   const form = document.querySelector('form')
+  const formFeedback = document.getElementById('form-feedback')
 
   form.addEventListener('submit', async (e) => {
     // Prevent default behavior, which causes a page reload. This also stops the
@@ -52,13 +53,14 @@
         body: new URLSearchParams(formData)
       })
 
+      // Clear all previous messages
+      document.getElementById('name-error').innerHTML = '';
+      document.getElementById('email-error').innerHTML = '';
+      document.getElementById('message-error').innerHTML = '';
+      formFeedback.innerHTML = '';
+
       if (!response.ok) {
         const result = await response.json();
-
-        // Remove any previous errors
-        document.getElementById('name-error').innerHTML = '';
-        document.getElementById('email-error').innerHTML = '';
-        document.getElementById('message-error').innerHTML = '';
 
         result.errors.forEach(error => {
           const errorElement = document.getElementById(`${error.path}-error`)
@@ -72,7 +74,7 @@
           }
         })
       } else {
-        document.getElementById('form-feedback').innerText = 'Success!';
+        formFeedback.innerText = 'Success!';
         form.reset()
       }
     } catch (error) {

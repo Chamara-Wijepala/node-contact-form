@@ -4,26 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
   <title>Contact Form</title>
 </head>
 
 <body>
-  <form action="http://localhost:3000/" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name">
-    <ul id="name-error"></ul>
+  <main>
+    <div class="container">
+      <form action="http://localhost:3000/" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <ul id="name-error" class="error-list"></ul>
 
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email">
-    <ul id="email-error"></ul>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <ul id="email-error" class="error-list"></ul>
 
-    <label for="message">Message:</label>
-    <textarea id="message" name="message"></textarea>
-    <ul id="message-error"></ul>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea>
+        <ul id="message-error" class="error-list"></ul>
 
-    <button type="submit">Submit</button>
-    <p id="form-feedback"></p>
-  </form>
+        <button type="submit">Submit</button>
+        <p id="form-feedback"></p>
+      </form>
+    </div>
+  </main>
 </body>
 
 

@@ -1,0 +1,19 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	max-width: 30em;
+	margin-inline: auto;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	margin-top: 4rem;
+}
+.error-list {
+	margin-bottom: 2rem;
+	color: red;
+}

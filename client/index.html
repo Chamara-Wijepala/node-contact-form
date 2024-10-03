@@ -13,15 +13,15 @@
     <div class="container">
       <form action="http://localhost:3000/" method="post">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" required>
         <ul id="name-error" class="error-list"></ul>
 
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email">
+        <input type="email" id="email" name="email" required>
         <ul id="email-error" class="error-list"></ul>
 
         <label for="message">Message:</label>
-        <textarea id="message" name="message"></textarea>
+        <textarea id="message" name="message" required></textarea>
         <ul id="message-error" class="error-list"></ul>
 
         <button type="submit">Submit</button>

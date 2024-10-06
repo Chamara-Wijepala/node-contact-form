@@ -62,17 +62,25 @@
       if (!response.ok) {
         const result = await response.json();
 
-        result.errors.forEach(error => {
-          const errorElement = document.getElementById(`${error.path}-error`)
+        // Display error messages for invalid form data
+        if (response.status === 400) {
+          result.errors.forEach(error => {
+            const errorElement = document.getElementById(`${error.path}-error`)
 
-          // Create and append an error message to it's respective field
-          if (errorElement) {
-            const errorMessage = document.createElement('li')
-            errorMessage.innerText = error.msg
+            // Create and append an error message to it's respective field
+            if (errorElement) {
+              const errorMessage = document.createElement('li')
+              errorMessage.innerText = error.msg
 
-            errorElement.appendChild(errorMessage)
-          }
-        })
+              errorElement.appendChild(errorMessage)
+            }
+          })
+        }
+
+        // Display error message for rate limiting
+        if (response.status === 429) {
+          formFeedback.innerText = result.message;
+        }
       } else {
         formFeedback.innerText = 'Success!';
         form.reset()

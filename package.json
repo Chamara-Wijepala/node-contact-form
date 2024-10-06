@@ -4,7 +4,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon ./server/app.js"
+		"dev:client": "browser-sync start --server 'client' --files './client/*.html, ./client/*.css, ./client/*.js'",
+		"dev:server": "nodemon ./server/app.js",
+		"start": "concurrently \"npm run dev:client\" \"npm run dev:server\""
 	},
 	"keywords": [],
 	"author": "",
@@ -13,7 +15,11 @@
 		"cors": "^2.8.5",
 		"dotenv": "^16.4.5",
 		"express": "^4.21.0",
-		"express-validator": "^7.2.0",
+		"express-validator": "^7.2.0"
+	},
+	"devDependencies": {
+		"browser-sync": "^3.0.3",
+		"concurrently": "^9.0.1",
 		"nodemon": "^3.1.7"
 	}
 }
